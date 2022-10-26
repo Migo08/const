@@ -17,7 +17,7 @@ export const onAuthStateChanged = () => {
 export const startLoginWithEmailPassword = ({ email, password }) => { //{ email, password }
     return async(dispatch, getState) => {
         dispatch( startLogin() );
-        
+        const { data } = await connectApi.get(`/pokemon?limit=10&offset=0`);   /// cambiar a login  
         const token = '123456789';  
         dispatch( setLogin({token: token, displayName: 'Miguel', role: 'Admin', email: email }) );
     }    
